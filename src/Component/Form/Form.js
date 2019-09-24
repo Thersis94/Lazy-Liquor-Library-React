@@ -9,6 +9,7 @@ export class Form extends React.Component {
       searchInput: "",
       Highlighted: []
     };
+    this.setHighlighted = this.setHighlighted.bind(this)
   }
 
   setSearchBarInput(e) {
@@ -19,7 +20,10 @@ export class Form extends React.Component {
   }
 
   setHighlighted(e) {
-    console.log(e);
+    this.setState({
+      Highlighted: e
+    })
+    console.log(this.state.Highlighted)
   }
 
   submitSearch(e) {
@@ -59,7 +63,7 @@ export class Form extends React.Component {
                 </div>
               </div>
             </div>
-            <DrinkHighlighters />
+            <DrinkHighlighters highlightedState={this.setHighlighted} />
             <div className="display-ing-list">
               <Link to="/ing-list">
                 <button type="button" id="ing-list-button">
